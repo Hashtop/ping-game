@@ -49,8 +49,6 @@ func move(delta):
 				ball.dir = ball.dir.bounce(collision.normal)
 				ball.position += ball.dir * 3
 				
-				game_logic.freeze()
-				
 				if current_player != collider and ball.speed + 20 <= ball.MAX_SPEED:
 					current_player = collider
 					

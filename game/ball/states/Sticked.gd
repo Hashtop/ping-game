@@ -51,6 +51,5 @@ func throw_ball() -> void:
 	current_player = null
 	
 	ball.position += ball.dir * 3
-	ball.game_logic.freeze()
 	
 	ball.state_manager.change_state(ball.current_state, ball.States.THROWED)
