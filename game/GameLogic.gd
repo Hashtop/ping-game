@@ -3,7 +3,6 @@ extends Node
 onready var parent = get_parent()
 
 onready var hud = parent.get_node("HUD")
-onready var freeze_frame = parent.get_node("FreezeFrame")
 
 onready var end_anim = parent.get_node("CLayerEnd/GameOverAnim")
 
@@ -35,7 +34,3 @@ func scored_goal(ball_node):
 				end_anim.play("end")
 	
 	
-
-
-func freeze():
-	freeze_frame.freeze_frame()
