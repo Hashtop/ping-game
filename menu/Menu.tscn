@@ -1,0 +1,851 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://fonts/comfortaa_light_64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/comfortaa_light_256.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menu/Menu.gd" type="Script" id=3]
+[ext_resource path="res://menu/buttons/options_panel.tres" type="StyleBox" id=4]
+[ext_resource path="res://menu/Tab1.gd" type="Script" id=5]
+[ext_resource path="res://menu/buttons/CustomSpinBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://menu/settings/SoundOptions.gd" type="Script" id=7]
+[ext_resource path="res://menu/settings/MiscOptions.gd" type="Script" id=8]
+[ext_resource path="res://menu/Settings.gd" type="Script" id=9]
+[ext_resource path="res://menu/GameConfig.gd" type="Script" id=10]
+[ext_resource path="res://menu/mods/MapSelect.gd" type="Script" id=11]
+[ext_resource path="res://menu/mods/BallNumber.gd" type="Script" id=12]
+[ext_resource path="res://fonts/comfortaa/Comfortaa-Light.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="ImageTexture" id=1]
+
+[sub_resource type="ImageTexture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 13 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CameraTween" type="Tween" parent="."]
+
+[node name="FirstMenu" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="FirstMenu"]
+margin_left = 673.0
+margin_top = 114.0
+margin_right = 1246.0
+margin_bottom = 966.0
+custom_constants/separation = 250
+
+[node name="Title" type="Label" parent="FirstMenu/VBox"]
+margin_right = 573.0
+margin_bottom = 286.0
+custom_fonts/font = ExtResource( 2 )
+text = "Ping"
+align = 1
+valign = 1
+
+[node name="Options" type="VBoxContainer" parent="FirstMenu/VBox"]
+margin_top = 536.0
+margin_right = 573.0
+margin_bottom = 852.0
+custom_constants/separation = 50
+
+[node name="Play" type="Label" parent="FirstMenu/VBox/Options"]
+margin_right = 573.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 1 )
+text = "Jogar"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="FirstMenu/VBox/Options/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Play/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Label" parent="FirstMenu/VBox/Options"]
+margin_top = 122.0
+margin_right = 573.0
+margin_bottom = 194.0
+custom_fonts/font = ExtResource( 1 )
+text = "Configurações"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="FirstMenu/VBox/Options/Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 490, 71.5 )
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Settings/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Label" parent="FirstMenu/VBox/Options"]
+margin_top = 244.0
+margin_right = 573.0
+margin_bottom = 316.0
+custom_fonts/font = ExtResource( 1 )
+text = "Sair"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="FirstMenu/VBox/Options/Exit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Exit/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1082.12
+margin_bottom = 1082.12
+mouse_filter = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anim" type="Tween" parent="Settings"]
+
+[node name="VBox" type="VBoxContainer" parent="Settings"]
+margin_left = 434.0
+margin_top = 182.0
+margin_right = 1485.0
+margin_bottom = 898.0
+custom_constants/separation = 200
+
+[node name="Options" type="VBoxContainer" parent="Settings/VBox"]
+margin_right = 1051.0
+margin_bottom = 444.0
+custom_constants/separation = 150
+
+[node name="Center" type="CenterContainer" parent="Settings/VBox/Options"]
+margin_right = 1051.0
+margin_bottom = 194.0
+
+[node name="SoundOptions" type="VBoxContainer" parent="Settings/VBox/Options/Center"]
+margin_right = 1051.0
+margin_bottom = 194.0
+custom_constants/separation = 50
+script = ExtResource( 7 )
+
+[node name="VolMusic" type="HBoxContainer" parent="Settings/VBox/Options/Center/SoundOptions"]
+margin_right = 1051.0
+margin_bottom = 72.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Settings/VBox/Options/Center/SoundOptions/VolMusic"]
+margin_right = 625.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 1 )
+text = "Volume da Música:"
+align = 1
+valign = 1
+
+[node name="VolumeSlider" type="HSlider" parent="Settings/VBox/Options/Center/SoundOptions/VolMusic"]
+margin_left = 650.0
+margin_right = 1050.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 400, 72 )
+custom_icons/grabber_highlight = SubResource( 1 )
+custom_icons/grabber = SubResource( 2 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 5 )
+min_value = -80.0
+max_value = 0.0
+value = -3.0
+rounded = true
+scrollable = false
+
+[node name="VolAudio" type="HBoxContainer" parent="Settings/VBox/Options/Center/SoundOptions"]
+margin_top = 122.0
+margin_right = 1051.0
+margin_bottom = 194.0
+custom_constants/separation = 70
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Settings/VBox/Options/Center/SoundOptions/VolAudio"]
+margin_right = 581.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 1 )
+text = "Volume dos Sons:"
+align = 1
+valign = 1
+
+[node name="VolumeSlider" type="HSlider" parent="Settings/VBox/Options/Center/SoundOptions/VolAudio"]
+margin_left = 651.0
+margin_right = 1051.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 400, 72 )
+custom_icons/grabber_highlight = SubResource( 1 )
+custom_icons/grabber = SubResource( 2 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 5 )
+min_value = -80.0
+max_value = 0.0
+value = -3.0
+rounded = true
+scrollable = false
+
+[node name="Center2" type="CenterContainer" parent="Settings/VBox/Options"]
+margin_top = 344.0
+margin_right = 1051.0
+margin_bottom = 444.0
+
+[node name="MiscOptions" type="VBoxContainer" parent="Settings/VBox/Options/Center2"]
+margin_left = 70.0
+margin_right = 980.0
+margin_bottom = 100.0
+custom_constants/separation = 25
+script = ExtResource( 8 )
+
+[node name="ShakeAmount" type="HBoxContainer" parent="Settings/VBox/Options/Center2/MiscOptions"]
+margin_right = 910.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Settings/VBox/Options/Center2/MiscOptions/ShakeAmount"]
+margin_top = 14.0
+margin_right = 606.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "Força da Tremida:"
+align = 1
+valign = 1
+
+[node name="ShakeNumber" parent="Settings/VBox/Options/Center2/MiscOptions/ShakeAmount" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 610.0
+margin_right = 910.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+value = 5
+max_value = 10
+
+[node name="Back" type="Label" parent="Settings/VBox"]
+margin_left = 424.0
+margin_top = 644.0
+margin_right = 626.0
+margin_bottom = 716.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Voltar"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="Settings/VBox/Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Settings/VBox/Back/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameConfig" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1920.0
+margin_right = 1920.0
+mouse_filter = 2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anim" type="Tween" parent="GameConfig"]
+
+[node name="VBox" type="VBoxContainer" parent="GameConfig"]
+margin_left = 494.0
+margin_top = 103.0
+margin_right = 1425.0
+margin_bottom = 976.0
+custom_constants/separation = 100
+
+[node name="Play" type="Label" parent="GameConfig/VBox"]
+margin_left = 332.0
+margin_right = 599.0
+margin_bottom = 72.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Próximo"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="GameConfig/VBox/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GameConfig/VBox/Play/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="VBoxContainer" parent="GameConfig/VBox"]
+margin_top = 172.0
+margin_right = 931.0
+margin_bottom = 701.0
+custom_constants/separation = 50
+
+[node name="BallNumber" type="CenterContainer" parent="GameConfig/VBox/Options"]
+margin_right = 931.0
+margin_bottom = 257.0
+script = ExtResource( 12 )
+
+[node name="MiscOptions" type="VBoxContainer" parent="GameConfig/VBox/Options/BallNumber"]
+margin_right = 931.0
+margin_bottom = 257.0
+custom_constants/separation = 10
+
+[node name="Text2" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_right = 931.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 6 )
+text = "O máximo de bolas é 10.  Não me pergunte o porque..."
+align = 1
+valign = 1
+
+[node name="RegularBalls" type="HBoxContainer" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_top = 47.0
+margin_right = 931.0
+margin_bottom = 147.0
+custom_constants/separation = 140
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls"]
+margin_top = 14.0
+margin_right = 491.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bolas Normais:"
+align = 1
+valign = 1
+
+[node name="Number" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 631.0
+margin_right = 931.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+value = 1
+max_value = 10
+
+[node name="StickyBalls" type="HBoxContainer" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_top = 157.0
+margin_right = 931.0
+margin_bottom = 257.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls"]
+margin_top = 14.0
+margin_right = 626.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bolas que Grudam:"
+align = 1
+valign = 1
+
+[node name="Number" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 630.0
+margin_right = 930.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+value = 1
+max_value = 10
+
+[node name="MapSelect" type="CenterContainer" parent="GameConfig/VBox/Options"]
+margin_top = 307.0
+margin_right = 931.0
+margin_bottom = 529.0
+script = ExtResource( 11 )
+
+[node name="HBox" type="VBoxContainer" parent="GameConfig/VBox/Options/MapSelect"]
+margin_left = 112.0
+margin_right = 818.0
+margin_bottom = 222.0
+custom_constants/separation = 50
+
+[node name="MapNumber" type="HBoxContainer" parent="GameConfig/VBox/Options/MapSelect/HBox"]
+margin_right = 706.0
+margin_bottom = 100.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="GameConfig/VBox/Options/MapSelect/HBox/MapNumber"]
+margin_top = 14.0
+margin_right = 206.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "Mapa:"
+align = 1
+valign = 1
+
+[node name="Number" parent="GameConfig/VBox/Options/MapSelect/HBox/MapNumber" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 406.0
+margin_right = 706.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+min_value = 1
+max_value = 10
+
+[node name="RandomizeMap" type="Label" parent="GameConfig/VBox/Options/MapSelect/HBox"]
+margin_top = 150.0
+margin_right = 706.0
+margin_bottom = 222.0
+custom_fonts/font = ExtResource( 1 )
+text = "Selecionar Aleatório"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="GameConfig/VBox/Options/MapSelect/HBox/RandomizeMap"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GameConfig/VBox/Options/MapSelect/HBox/RandomizeMap/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Label" parent="GameConfig/VBox"]
+margin_top = 801.0
+margin_right = 931.0
+margin_bottom = 873.0
+custom_fonts/font = ExtResource( 1 )
+text = "Voltar"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="GameConfig/VBox/Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GameConfig/VBox/Back/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerConfig" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1920.0
+margin_top = 1080.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anim" type="Tween" parent="PlayerConfig"]
+
+[node name="VBox" type="VBoxContainer" parent="PlayerConfig"]
+margin_left = 494.0
+margin_top = 103.0
+margin_right = 1425.0
+margin_bottom = 976.0
+custom_constants/separation = 100
+
+[node name="Play" type="Label" parent="PlayerConfig/VBox"]
+margin_left = 367.0
+margin_right = 563.0
+margin_bottom = 72.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Jogar"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="PlayerConfig/VBox/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PlayerConfig/VBox/Play/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="VBoxContainer" parent="PlayerConfig/VBox"]
+margin_top = 172.0
+margin_right = 931.0
+margin_bottom = 701.0
+custom_constants/separation = 50
+
+[node name="BallNumber" type="CenterContainer" parent="PlayerConfig/VBox/Options"]
+margin_right = 931.0
+margin_bottom = 257.0
+script = ExtResource( 12 )
+
+[node name="MiscOptions" type="VBoxContainer" parent="PlayerConfig/VBox/Options/BallNumber"]
+margin_right = 931.0
+margin_bottom = 257.0
+custom_constants/separation = 10
+
+[node name="Text2" type="Label" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_right = 931.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 6 )
+text = "O máximo de bolas é 10.  Não me pergunte o porque.."
+align = 1
+valign = 1
+
+[node name="RegularBalls" type="HBoxContainer" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_top = 47.0
+margin_right = 931.0
+margin_bottom = 147.0
+custom_constants/separation = 140
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls"]
+margin_top = 14.0
+margin_right = 491.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bolas Normais:"
+align = 1
+valign = 1
+
+[node name="Number" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 631.0
+margin_right = 931.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+value = 1
+max_value = 10
+
+[node name="StickyBalls" type="HBoxContainer" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_top = 157.0
+margin_right = 931.0
+margin_bottom = 257.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls"]
+margin_top = 14.0
+margin_right = 626.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bolas que Grudam:"
+align = 1
+valign = 1
+
+[node name="Number" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 630.0
+margin_right = 930.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+value = 1
+max_value = 10
+
+[node name="MapSelect" type="CenterContainer" parent="PlayerConfig/VBox/Options"]
+margin_top = 307.0
+margin_right = 931.0
+margin_bottom = 529.0
+script = ExtResource( 11 )
+
+[node name="HBox" type="VBoxContainer" parent="PlayerConfig/VBox/Options/MapSelect"]
+margin_left = 112.0
+margin_right = 818.0
+margin_bottom = 222.0
+custom_constants/separation = 50
+
+[node name="MapNumber" type="HBoxContainer" parent="PlayerConfig/VBox/Options/MapSelect/HBox"]
+margin_right = 706.0
+margin_bottom = 100.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="PlayerConfig/VBox/Options/MapSelect/HBox/MapNumber"]
+margin_top = 14.0
+margin_right = 206.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 1 )
+text = "Mapa:"
+align = 1
+valign = 1
+
+[node name="Number" parent="PlayerConfig/VBox/Options/MapSelect/HBox/MapNumber" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 406.0
+margin_right = 706.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+min_value = 1
+max_value = 10
+
+[node name="RandomizeMap" type="Label" parent="PlayerConfig/VBox/Options/MapSelect/HBox"]
+margin_top = 150.0
+margin_right = 706.0
+margin_bottom = 222.0
+custom_fonts/font = ExtResource( 1 )
+text = "Selecionar Aleatório"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="PlayerConfig/VBox/Options/MapSelect/HBox/RandomizeMap"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PlayerConfig/VBox/Options/MapSelect/HBox/RandomizeMap/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Label" parent="PlayerConfig/VBox"]
+margin_top = 801.0
+margin_right = 931.0
+margin_bottom = 873.0
+custom_fonts/font = ExtResource( 1 )
+text = "Voltar"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="PlayerConfig/VBox/Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PlayerConfig/VBox/Back/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CameraPos" type="Node2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="CameraPos"]
+anchor_mode = 0
+current = true
+
+[connection signal="value_changed" from="Settings/VBox/Options/Center/SoundOptions/VolMusic/VolumeSlider" to="Settings/VBox/Options/Center/SoundOptions" method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="Settings/VBox/Options/Center/SoundOptions/VolAudio/VolumeSlider" to="Settings/VBox/Options/Center/SoundOptions" method="_on_SoundSlider_value_changed"]
+[connection signal="pressed" from="Settings/VBox/Back/Panel/Button" to="Settings" method="exit_settings"]
+[connection signal="pressed" from="GameConfig/VBox/Play/Panel/Button" to="GameConfig" method="play_game"]
+[connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]
+[connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
+[connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]
+[connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
+[connection signal="pressed" from="GameConfig/VBox/Options/MapSelect/HBox/RandomizeMap/Panel/Button" to="GameConfig/VBox/Options/MapSelect" method="randomize_map"]
+[connection signal="pressed" from="GameConfig/VBox/Back/Panel/Button" to="GameConfig" method="back"]
+[connection signal="pressed" from="PlayerConfig/VBox/Play/Panel/Button" to="PlayerConfig" method="play_game"]
+[connection signal="value_add" from="PlayerConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="PlayerConfig/VBox/Options/BallNumber" method="value_add"]
+[connection signal="value_subtract" from="PlayerConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="PlayerConfig/VBox/Options/BallNumber" method="value_subtract"]
+[connection signal="value_add" from="PlayerConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="PlayerConfig/VBox/Options/BallNumber" method="value_add"]
+[connection signal="value_subtract" from="PlayerConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="PlayerConfig/VBox/Options/BallNumber" method="value_subtract"]
+[connection signal="pressed" from="PlayerConfig/VBox/Options/MapSelect/HBox/RandomizeMap/Panel/Button" to="PlayerConfig/VBox/Options/MapSelect" method="randomize_map"]
+[connection signal="pressed" from="PlayerConfig/VBox/Back/Panel/Button" to="PlayerConfig" method="back"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/comfortaa_bold_128.tres" type="DynamicFont" id=1]
+[ext_resource path="res://game/GUI/HUD.gd" type="Script" id=2]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1920, 1080 )
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="Center"]
+margin_left = 410.0
+margin_top = 290.0
+margin_right = 1510.0
+margin_bottom = 790.0
+mouse_filter = 2
+custom_constants/separation = 100
+
+[node name="PontosP1" type="Label" parent="Center/HBox"]
+margin_top = -1.0
+margin_right = 500.0
+margin_bottom = 499.0
+rect_min_size = Vector2( 500, 500 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 0.486275 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="PontosP2" type="Label" parent="Center/HBox"]
+margin_left = 600.0
+margin_top = -1.0
+margin_right = 1100.0
+margin_bottom = 499.0
+rect_min_size = Vector2( 500, 500 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 0.486275 )
+text = "0"
+align = 1
+valign = 1

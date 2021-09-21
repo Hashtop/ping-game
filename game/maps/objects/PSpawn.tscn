@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="PSpawn" type="Node2D" groups=[
+"pspawn",
+]]
+position = Vector2( 960, 267.726 )
