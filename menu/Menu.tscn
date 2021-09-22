@@ -48,11 +48,11 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 64
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 13 )
 
@@ -377,9 +377,9 @@ __meta__ = {
 
 [node name="VBox" type="VBoxContainer" parent="GameConfig"]
 margin_left = 607.0
-margin_top = 150.0
+margin_top = 1.0
 margin_right = 1313.0
-margin_bottom = 1227.0
+margin_bottom = 1078.0
 custom_constants/separation = 50
 
 [node name="Play" type="Label" parent="GameConfig/VBox"]
@@ -435,7 +435,7 @@ custom_constants/separation = 10
 [node name="Title" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
 margin_right = 613.0
 margin_bottom = 72.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "Bolas:"
 valign = 1
 __meta__ = {
@@ -446,7 +446,7 @@ __meta__ = {
 margin_top = 82.0
 margin_right = 613.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 3
@@ -740,7 +740,7 @@ custom_constants/separation = 10
 [node name="Text2" type="Label" parent="PlayerConfig/VBox/Options/BallNumber/MiscOptions"]
 margin_right = 931.0
 margin_bottom = 37.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "O máximo de bolas é 10.  Não me pergunte o porque.."
 align = 1
 valign = 1
@@ -865,6 +865,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 0
+action_mode = 0
 enabled_focus_mode = 0
 flat = true
 __meta__ = {

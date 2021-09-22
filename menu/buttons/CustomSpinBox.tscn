@@ -53,7 +53,9 @@ polygon = PoolVector2Array( 50, -50, 50, 0, 0, -25 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 0
+action_mode = 0
 enabled_focus_mode = 0
+keep_pressed_outside = true
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -90,7 +92,9 @@ polygon = PoolVector2Array( 0, -50, 0, 0, 50, -25 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 0
+action_mode = 0
 enabled_focus_mode = 0
+keep_pressed_outside = true
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
