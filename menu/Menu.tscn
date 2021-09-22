@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://fonts/comfortaa_light_64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/comfortaa_light_256.tres" type="DynamicFont" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://fonts/comfortaa/Comfortaa-Light.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://menu/PlayerConfig.gd" type="Script" id=14]
 [ext_resource path="res://menu/mods/PointsNumber.gd" type="Script" id=15]
+[ext_resource path="res://sprites/bola.png" type="Texture" id=16]
+[ext_resource path="res://sprites/bola_grude.png" type="Texture" id=17]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -45,6 +47,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=7]
+size = 64
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
@@ -370,15 +376,15 @@ __meta__ = {
 [node name="Anim" type="Tween" parent="GameConfig"]
 
 [node name="VBox" type="VBoxContainer" parent="GameConfig"]
-margin_left = 494.0
-margin_top = 42.0
-margin_right = 1425.0
-margin_bottom = 1037.0
+margin_left = 607.0
+margin_top = 150.0
+margin_right = 1313.0
+margin_bottom = 1227.0
 custom_constants/separation = 50
 
 [node name="Play" type="Label" parent="GameConfig/VBox"]
-margin_left = 332.0
-margin_right = 599.0
+margin_left = 219.0
+margin_right = 486.0
 margin_bottom = 72.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 1 )
@@ -411,93 +417,137 @@ __meta__ = {
 
 [node name="Options" type="VBoxContainer" parent="GameConfig/VBox"]
 margin_top = 122.0
-margin_right = 931.0
-margin_bottom = 873.0
+margin_right = 706.0
+margin_bottom = 955.0
 custom_constants/separation = 50
 
 [node name="BallNumber" type="CenterContainer" parent="GameConfig/VBox/Options"]
-margin_right = 931.0
-margin_bottom = 257.0
+margin_right = 706.0
+margin_bottom = 339.0
 script = ExtResource( 12 )
 
 [node name="MiscOptions" type="VBoxContainer" parent="GameConfig/VBox/Options/BallNumber"]
-margin_right = 931.0
-margin_bottom = 257.0
+margin_left = 46.0
+margin_right = 659.0
+margin_bottom = 339.0
 custom_constants/separation = 10
 
-[node name="Text2" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
-margin_right = 931.0
-margin_bottom = 37.0
+[node name="Title" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_right = 613.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 7 )
+text = "Bolas:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Warning" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
+margin_top = 82.0
+margin_right = 613.0
+margin_bottom = 119.0
 custom_fonts/font = SubResource( 6 )
-text = "O máximo de bolas é 10.  Não me pergunte o porque..."
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 3
+text = "O máximo de bolas é 10. "
 align = 1
 valign = 1
 
 [node name="RegularBalls" type="HBoxContainer" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
-margin_top = 47.0
-margin_right = 931.0
-margin_bottom = 147.0
+margin_top = 129.0
+margin_right = 613.0
+margin_bottom = 229.0
+rect_min_size = Vector2( 0, 100 )
 custom_constants/separation = 140
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Ignore" type="Control" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls"]
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ball" type="Sprite" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 16 )
+centered = false
+
 [node name="Text" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls"]
+margin_left = 140.0
 margin_top = 14.0
-margin_right = 491.0
+margin_right = 173.0
 margin_bottom = 86.0
 custom_fonts/font = ExtResource( 1 )
-text = "Bolas Normais:"
+text = "="
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Number" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 631.0
-margin_right = 931.0
+margin_left = 313.0
+margin_right = 613.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 300, 100 )
 value = 1
 max_value = 10
 
 [node name="StickyBalls" type="HBoxContainer" parent="GameConfig/VBox/Options/BallNumber/MiscOptions"]
-margin_top = 157.0
-margin_right = 931.0
-margin_bottom = 257.0
+margin_top = 239.0
+margin_right = 613.0
+margin_bottom = 339.0
+custom_constants/separation = 140
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Ignore" type="Control" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls"]
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ball" type="Sprite" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 17 )
+centered = false
+
 [node name="Text" type="Label" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls"]
+margin_left = 140.0
 margin_top = 14.0
-margin_right = 626.0
+margin_right = 173.0
 margin_bottom = 86.0
 custom_fonts/font = ExtResource( 1 )
-text = "Bolas que Grudam:"
+text = "="
 align = 1
 valign = 1
 
 [node name="Number" parent="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 630.0
-margin_right = 930.0
+margin_left = 313.0
+margin_right = 613.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 300, 100 )
 value = 1
 max_value = 10
 
 [node name="Points" type="VSplitContainer" parent="GameConfig/VBox/Options"]
-margin_top = 307.0
-margin_right = 931.0
-margin_bottom = 479.0
+margin_top = 389.0
+margin_right = 706.0
+margin_bottom = 561.0
 split_offset = 59
 dragger_visibility = 2
 script = ExtResource( 15 )
 
 [node name="Text" type="Label" parent="GameConfig/VBox/Options/Points"]
-margin_right = 931.0
+margin_right = 706.0
 margin_bottom = 72.0
 custom_fonts/font = ExtResource( 1 )
 text = "Pontos para ganhar:"
@@ -508,21 +558,20 @@ valign = 1
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 72.0
-margin_right = 931.0
+margin_right = 706.0
 margin_bottom = 172.0
 rect_min_size = Vector2( 300, 100 )
 value = 10
 max_value = 5000
 
 [node name="MapSelect" type="CenterContainer" parent="GameConfig/VBox/Options"]
-margin_top = 529.0
-margin_right = 931.0
-margin_bottom = 751.0
+margin_top = 611.0
+margin_right = 706.0
+margin_bottom = 833.0
 script = ExtResource( 11 )
 
 [node name="HBox" type="VBoxContainer" parent="GameConfig/VBox/Options/MapSelect"]
-margin_left = 112.0
-margin_right = 818.0
+margin_right = 706.0
 margin_bottom = 222.0
 custom_constants/separation = 50
 
@@ -586,9 +635,9 @@ __meta__ = {
 }
 
 [node name="Back" type="Label" parent="GameConfig/VBox"]
-margin_top = 923.0
-margin_right = 931.0
-margin_bottom = 995.0
+margin_top = 1005.0
+margin_right = 706.0
+margin_bottom = 1077.0
 custom_fonts/font = ExtResource( 1 )
 text = "Voltar"
 align = 1
