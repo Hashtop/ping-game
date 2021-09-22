@@ -26,7 +26,7 @@ func value_add(value, p, node):
 				Global.ball_quantity["regular"] = node.value
 			else:
 				Global.ball_quantity["regular"] = node.value
-				sticky_balls.value -= 1
+				sticky_balls.subtract_value()
 				sticky_balls.update()
 		"StickyBalls":
 			print("sticky")
@@ -34,5 +34,5 @@ func value_add(value, p, node):
 				Global.ball_quantity["sticky"] = node.value
 			else:
 				Global.ball_quantity["sticky"] = node.value
-				regular_balls.value -= 1
+				regular_balls.subtract_value()
 				regular_balls.update()
