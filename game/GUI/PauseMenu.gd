@@ -55,3 +55,4 @@ func menu_pressed():
 		$FadeAnim.play("fade_in")
 		yield($FadeAnim, "animation_finished")
 		get_tree().change_scene("res://menu/Menu.tscn")
+		get_tree().paused = false

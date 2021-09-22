@@ -20,11 +20,13 @@ func play():
 			Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 	tween_cam.start()
 
+
 func settings():
 	tween_cam.interpolate_property(camera, "position",
 			Vector2(0, 0), Vector2(0, 1080), 2,
 			Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 	tween_cam.start()
+
 
 func exit():
 	tween_cam.interpolate_property(camera, "position",
