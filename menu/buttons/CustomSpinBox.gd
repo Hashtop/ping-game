@@ -11,8 +11,11 @@ export var max_value := 0
 
 onready var a1_button = $CenterContainer/HBoxContainer/Arrow1/Arrow/Button
 onready var a2_button = $CenterContainer/HBoxContainer/Arrow2/Arrow/Button
+onready var lefta_spr = $CenterContainer/HBoxContainer/Arrow1/Arrow/Sprite
+onready var righta_spr = $CenterContainer/HBoxContainer/Arrow2/Arrow/Sprite
 
 onready var text = $CenterContainer/HBoxContainer/Text
+onready var tween = $Tween
 
 onready var parent = get_parent()
 
@@ -32,6 +35,13 @@ func subtract_value():
 		emit_signal("value_subtract", value, parent, self)
 		
 		update()
+		
+		tween.interpolate_property(lefta_spr, "position", 
+				Vector2(0, 0), Vector2(-20, 0), 0.1,Tween.TRANS_EXPO, Tween.EASE_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+		
+		lefta_spr.position = Vector2(0, 0)
 
 
 func add_value():
@@ -41,6 +51,14 @@ func add_value():
 		emit_signal("value_add", value, parent, self)
 		
 		update()
+		
+		tween.interpolate_property(righta_spr, "position", 
+				Vector2(0, 0), Vector2(20, 0), 0.1, Tween.TRANS_EXPO, Tween.EASE_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+		
+		righta_spr.position = Vector2(0, 0)
+		
 
 func update():
 	text.text = str(value)
