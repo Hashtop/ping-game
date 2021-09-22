@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://fonts/comfortaa_light_64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/comfortaa_light_256.tres" type="DynamicFont" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://menu/mods/MapSelect.gd" type="Script" id=11]
 [ext_resource path="res://menu/mods/BallNumber.gd" type="Script" id=12]
 [ext_resource path="res://fonts/comfortaa/Comfortaa-Light.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://menu/PlayerConfig.gd" type="Script" id=14]
+[ext_resource path="res://menu/mods/PointsNumber.gd" type="Script" id=15]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -369,10 +371,10 @@ __meta__ = {
 
 [node name="VBox" type="VBoxContainer" parent="GameConfig"]
 margin_left = 494.0
-margin_top = 103.0
+margin_top = 42.0
 margin_right = 1425.0
-margin_bottom = 976.0
-custom_constants/separation = 100
+margin_bottom = 1037.0
+custom_constants/separation = 50
 
 [node name="Play" type="Label" parent="GameConfig/VBox"]
 margin_left = 332.0
@@ -408,9 +410,9 @@ __meta__ = {
 }
 
 [node name="Options" type="VBoxContainer" parent="GameConfig/VBox"]
-margin_top = 172.0
+margin_top = 122.0
 margin_right = 931.0
-margin_bottom = 701.0
+margin_bottom = 873.0
 custom_constants/separation = 50
 
 [node name="BallNumber" type="CenterContainer" parent="GameConfig/VBox/Options"]
@@ -486,10 +488,36 @@ rect_min_size = Vector2( 300, 100 )
 value = 1
 max_value = 10
 
-[node name="MapSelect" type="CenterContainer" parent="GameConfig/VBox/Options"]
+[node name="Points" type="VSplitContainer" parent="GameConfig/VBox/Options"]
 margin_top = 307.0
 margin_right = 931.0
-margin_bottom = 529.0
+margin_bottom = 479.0
+split_offset = 59
+dragger_visibility = 2
+script = ExtResource( 15 )
+
+[node name="Text" type="Label" parent="GameConfig/VBox/Options/Points"]
+margin_right = 931.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 1 )
+text = "Pontos para ganhar:"
+align = 1
+valign = 1
+
+[node name="Number" parent="GameConfig/VBox/Options/Points" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 931.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 300, 100 )
+value = 10
+max_value = 5000
+
+[node name="MapSelect" type="CenterContainer" parent="GameConfig/VBox/Options"]
+margin_top = 529.0
+margin_right = 931.0
+margin_bottom = 751.0
 script = ExtResource( 11 )
 
 [node name="HBox" type="VBoxContainer" parent="GameConfig/VBox/Options/MapSelect"]
@@ -558,9 +586,9 @@ __meta__ = {
 }
 
 [node name="Back" type="Label" parent="GameConfig/VBox"]
-margin_top = 801.0
+margin_top = 923.0
 margin_right = 931.0
-margin_bottom = 873.0
+margin_bottom = 995.0
 custom_fonts/font = ExtResource( 1 )
 text = "Voltar"
 align = 1
@@ -597,7 +625,7 @@ margin_top = 1080.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
-script = ExtResource( 10 )
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -840,6 +868,7 @@ current = true
 [connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
 [connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]
 [connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
+[connection signal="value_changed" from="GameConfig/VBox/Options/Points/Number" to="GameConfig/VBox/Options/Points" method="on_value_changed"]
 [connection signal="pressed" from="GameConfig/VBox/Options/MapSelect/HBox/RandomizeMap/Panel/Button" to="GameConfig/VBox/Options/MapSelect" method="randomize_map"]
 [connection signal="pressed" from="GameConfig/VBox/Back/Panel/Button" to="GameConfig" method="back"]
 [connection signal="pressed" from="PlayerConfig/VBox/Play/Panel/Button" to="PlayerConfig" method="play_game"]

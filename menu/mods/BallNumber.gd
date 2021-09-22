@@ -3,16 +3,6 @@ extends CenterContainer
 onready var regular_balls = $MiscOptions/RegularBalls/Number
 onready var sticky_balls = $MiscOptions/StickyBalls/Number
 
-#
-#func regular_balls_changed(value) -> void:
-#	if (Global.ball_quantity["regular"] + 1 + Global.ball_quantity["sticky"]) <= 10:
-#		Global.ball_quantity["regular"] = value
-#
-#
-#func sticky_balls_changed(value) -> void:
-#	if (Global.ball_quantity["sticky"] + 1 + Global.ball_quantity["regular"]) <= 10:
-#		Global.ball_quantity["sticky"] = value
-
 
 func value_subtract(value, p, node):
 	print("subtract")
@@ -24,6 +14,7 @@ func value_subtract(value, p, node):
 		"StickyBalls":
 			print("sticky")
 			Global.ball_quantity["sticky"] = value
+
 
 func value_add(value, p, node):
 	print("add")

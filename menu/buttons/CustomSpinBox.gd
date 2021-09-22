@@ -3,6 +3,8 @@ extends Control
 signal value_subtract(value, pname, node)
 signal value_add(value, pname, node)
 
+signal value_changed(new_value)
+
 export var value := 0
 export var min_value := 0
 export var max_value := 0
@@ -42,3 +44,5 @@ func add_value():
 
 func update():
 	text.text = str(value)
+	
+	emit_signal("value_changed", value)

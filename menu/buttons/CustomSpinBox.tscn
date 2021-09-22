@@ -40,9 +40,9 @@ margin_right = 50.0
 margin_bottom = 72.0
 
 [node name="Arrow" type="Control" parent="CenterContainer/HBoxContainer/Arrow1"]
-margin_top = 10.0
+margin_top = 11.0
 margin_right = 50.0
-margin_bottom = 60.0
+margin_bottom = 61.0
 rect_min_size = Vector2( 50, 50 )
 
 [node name="Sprite" type="Polygon2D" parent="CenterContainer/HBoxContainer/Arrow1/Arrow"]
@@ -77,9 +77,9 @@ margin_right = 236.0
 margin_bottom = 72.0
 
 [node name="Arrow" type="Control" parent="CenterContainer/HBoxContainer/Arrow2"]
-margin_top = 10.0
+margin_top = 11.0
 margin_right = 50.0
-margin_bottom = 60.0
+margin_bottom = 61.0
 rect_min_size = Vector2( 50, 50 )
 
 [node name="Sprite" type="Polygon2D" parent="CenterContainer/HBoxContainer/Arrow2/Arrow"]
