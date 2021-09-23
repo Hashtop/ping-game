@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://fonts/comfortaa_light_64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/comfortaa_light_256.tres" type="DynamicFont" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://menu/mods/PointsNumber.gd" type="Script" id=15]
 [ext_resource path="res://sprites/bola.png" type="Texture" id=16]
 [ext_resource path="res://sprites/bola_grude.png" type="Texture" id=17]
+[ext_resource path="res://fonts/comfortaa_bold_128.tres" type="DynamicFont" id=18]
+[ext_resource path="res://menu/Color.gd" type="Script" id=19]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -55,6 +57,23 @@ font_data = ExtResource( 13 )
 [sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "default"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("RandomizeMap:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.321569, 0.988235, 1 ), Color( 1, 0.733333, 0.321569, 1 ), Color( 0.392157, 1, 0.321569, 1 ), Color( 1, 0.321569, 0.321569, 1 ) ]
+}
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -105,21 +124,13 @@ text = "Jogar"
 align = 1
 valign = 1
 
-[node name="Panel" type="Panel" parent="FirstMenu/VBox/Options/Play"]
+[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Play"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -20.0
 margin_top = -20.0
-margin_bottom = 20.0
-mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Play/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = -20.0
+margin_bottom = -20.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -136,22 +147,13 @@ text = "Configurações"
 align = 1
 valign = 1
 
-[node name="Panel" type="Panel" parent="FirstMenu/VBox/Options/Settings"]
+[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Settings"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -20.0
 margin_top = -20.0
-margin_bottom = 20.0
-rect_pivot_offset = Vector2( 490, 71.5 )
-mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Settings/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = -20.0
+margin_bottom = -20.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -168,21 +170,13 @@ text = "Sair"
 align = 1
 valign = 1
 
-[node name="Panel" type="Panel" parent="FirstMenu/VBox/Options/Exit"]
+[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Exit"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -20.0
 margin_top = -20.0
-margin_bottom = 20.0
-mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="FirstMenu/VBox/Options/Exit/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = -20.0
+margin_bottom = -20.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -339,22 +333,13 @@ text = "Voltar"
 align = 1
 valign = 1
 
-[node name="Panel" type="Panel" parent="Settings/VBox/Back"]
+[node name="Button" type="Button" parent="Settings/VBox/Back"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -20.0
 margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Settings/VBox/Back/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = -20.0
+margin_bottom = -20.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -366,7 +351,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1920.0
+margin_top = -1.8877
 margin_right = 1920.0
+margin_bottom = -1.8877
 mouse_filter = 2
 script = ExtResource( 10 )
 __meta__ = {
@@ -376,38 +363,26 @@ __meta__ = {
 [node name="Anim" type="Tween" parent="GameConfig"]
 
 [node name="VBox" type="VBoxContainer" parent="GameConfig"]
-margin_left = 607.0
-margin_top = 1.0
-margin_right = 1313.0
-margin_bottom = 1078.0
-custom_constants/separation = 50
+margin_left = 563.0
+margin_top = 51.0
+margin_right = 1356.0
+margin_bottom = 1028.0
 
-[node name="Play" type="Label" parent="GameConfig/VBox"]
-margin_left = 219.0
-margin_right = 486.0
+[node name="Back" type="Label" parent="GameConfig/VBox"]
+margin_right = 793.0
 margin_bottom = 72.0
-size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 1 )
-text = "Próximo"
+text = "Voltar"
 align = 1
 valign = 1
 
-[node name="Panel" type="Panel" parent="GameConfig/VBox/Play"]
+[node name="Button" type="Button" parent="GameConfig/VBox/Back"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -20.0
 margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="GameConfig/VBox/Play/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = -20.0
+margin_bottom = -20.0
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -416,19 +391,19 @@ __meta__ = {
 }
 
 [node name="Options" type="VBoxContainer" parent="GameConfig/VBox"]
-margin_top = 122.0
-margin_right = 706.0
-margin_bottom = 955.0
-custom_constants/separation = 50
+margin_top = 76.0
+margin_right = 793.0
+margin_bottom = 977.0
+custom_constants/separation = 25
 
 [node name="BallNumber" type="CenterContainer" parent="GameConfig/VBox/Options"]
-margin_right = 706.0
+margin_right = 793.0
 margin_bottom = 339.0
 script = ExtResource( 12 )
 
 [node name="MiscOptions" type="VBoxContainer" parent="GameConfig/VBox/Options/BallNumber"]
-margin_left = 46.0
-margin_right = 659.0
+margin_left = 90.0
+margin_right = 703.0
 margin_bottom = 339.0
 custom_constants/separation = 10
 
@@ -538,52 +513,27 @@ rect_min_size = Vector2( 300, 100 )
 value = 1
 max_value = 10
 
-[node name="Points" type="VSplitContainer" parent="GameConfig/VBox/Options"]
-margin_top = 389.0
-margin_right = 706.0
-margin_bottom = 561.0
-split_offset = 59
+[node name="VSplitContainer" type="VSplitContainer" parent="GameConfig/VBox/Options"]
+margin_top = 364.0
+margin_right = 793.0
+margin_bottom = 636.0
+custom_constants/separation = 46
 dragger_visibility = 2
-script = ExtResource( 15 )
 
-[node name="Text" type="Label" parent="GameConfig/VBox/Options/Points"]
-margin_right = 706.0
-margin_bottom = 72.0
-custom_fonts/font = ExtResource( 1 )
-text = "Pontos para ganhar:"
-align = 1
-valign = 1
-
-[node name="Number" parent="GameConfig/VBox/Options/Points" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 706.0
-margin_bottom = 172.0
-rect_min_size = Vector2( 300, 100 )
-value = 10
-max_value = 5000
-
-[node name="MapSelect" type="CenterContainer" parent="GameConfig/VBox/Options"]
-margin_top = 611.0
-margin_right = 706.0
-margin_bottom = 833.0
+[node name="MapSelect" type="CenterContainer" parent="GameConfig/VBox/Options/VSplitContainer"]
+margin_right = 793.0
+margin_bottom = 100.0
 script = ExtResource( 11 )
 
-[node name="HBox" type="VBoxContainer" parent="GameConfig/VBox/Options/MapSelect"]
-margin_right = 706.0
-margin_bottom = 222.0
-custom_constants/separation = 50
-
-[node name="MapNumber" type="HBoxContainer" parent="GameConfig/VBox/Options/MapSelect/HBox"]
-margin_right = 706.0
+[node name="MapNumber" type="HBoxContainer" parent="GameConfig/VBox/Options/VSplitContainer/MapSelect"]
+margin_left = 141.0
+margin_right = 651.0
 margin_bottom = 100.0
-custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="Label" parent="GameConfig/VBox/Options/MapSelect/HBox/MapNumber"]
+[node name="Text" type="Label" parent="GameConfig/VBox/Options/VSplitContainer/MapSelect/MapNumber"]
 margin_top = 14.0
 margin_right = 206.0
 margin_bottom = 86.0
@@ -592,39 +542,57 @@ text = "Mapa:"
 align = 1
 valign = 1
 
-[node name="Number" parent="GameConfig/VBox/Options/MapSelect/HBox/MapNumber" instance=ExtResource( 6 )]
+[node name="Number" parent="GameConfig/VBox/Options/VSplitContainer/MapSelect/MapNumber" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 406.0
-margin_right = 706.0
+margin_left = 210.0
+margin_right = 510.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 300, 100 )
 min_value = 1
 max_value = 10
 
-[node name="RandomizeMap" type="Label" parent="GameConfig/VBox/Options/MapSelect/HBox"]
-margin_top = 150.0
-margin_right = 706.0
-margin_bottom = 222.0
+[node name="Points" type="VSplitContainer" parent="GameConfig/VBox/Options/VSplitContainer"]
+margin_top = 100.0
+margin_right = 793.0
+margin_bottom = 272.0
+split_offset = 59
+dragger_visibility = 2
+script = ExtResource( 15 )
+
+[node name="Text" type="Label" parent="GameConfig/VBox/Options/VSplitContainer/Points"]
+margin_right = 793.0
+margin_bottom = 72.0
 custom_fonts/font = ExtResource( 1 )
-text = "Selecionar Aleatório"
+text = "Pontos para ganhar:"
 align = 1
 valign = 1
 
-[node name="Panel" type="Panel" parent="GameConfig/VBox/Options/MapSelect/HBox/RandomizeMap"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Number" parent="GameConfig/VBox/Options/VSplitContainer/Points" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 793.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 300, 100 )
+value = 10
+max_value = 5000
 
-[node name="Button" type="Button" parent="GameConfig/VBox/Options/MapSelect/HBox/RandomizeMap/Panel"]
+[node name="Color" type="AnimationPlayer" parent="GameConfig/VBox/Options"]
+anims/default = SubResource( 8 )
+script = ExtResource( 19 )
+
+[node name="RandomizeMap" type="Label" parent="GameConfig/VBox/Options"]
+margin_top = 661.0
+margin_right = 793.0
+margin_bottom = 804.0
+custom_fonts/font = ExtResource( 18 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "ALEATÓRIO"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="GameConfig/VBox/Options/RandomizeMap"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 0
@@ -634,16 +602,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Label" parent="GameConfig/VBox"]
-margin_top = 1005.0
-margin_right = 706.0
-margin_bottom = 1077.0
+[node name="Play" type="Label" parent="GameConfig/VBox/Options"]
+margin_left = 263.0
+margin_top = 829.0
+margin_right = 530.0
+margin_bottom = 901.0
+size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 1 )
-text = "Voltar"
+text = "Próximo"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Panel" type="Panel" parent="GameConfig/VBox/Back"]
+[node name="Panel" type="Panel" parent="GameConfig/VBox/Options/Play"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -20.0
@@ -656,7 +629,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="GameConfig/VBox/Back/Panel"]
+[node name="Button" type="Button" parent="GameConfig/VBox/Options/Play/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 0
@@ -912,15 +885,15 @@ current = true
 
 [connection signal="value_changed" from="Settings/VBox/Options/Center/SoundOptions/VolMusic/VolumeSlider" to="Settings/VBox/Options/Center/SoundOptions" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="Settings/VBox/Options/Center/SoundOptions/VolAudio/VolumeSlider" to="Settings/VBox/Options/Center/SoundOptions" method="_on_SoundSlider_value_changed"]
-[connection signal="pressed" from="Settings/VBox/Back/Panel/Button" to="Settings" method="exit_settings"]
-[connection signal="pressed" from="GameConfig/VBox/Play/Panel/Button" to="GameConfig" method="play_game"]
+[connection signal="pressed" from="Settings/VBox/Back/Button" to="Settings" method="exit_settings"]
+[connection signal="pressed" from="GameConfig/VBox/Back/Button" to="GameConfig" method="back"]
 [connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]
 [connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
 [connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]
 [connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
-[connection signal="value_changed" from="GameConfig/VBox/Options/Points/Number" to="GameConfig/VBox/Options/Points" method="on_value_changed"]
-[connection signal="pressed" from="GameConfig/VBox/Options/MapSelect/HBox/RandomizeMap/Panel/Button" to="GameConfig/VBox/Options/MapSelect" method="randomize_map"]
-[connection signal="pressed" from="GameConfig/VBox/Back/Panel/Button" to="GameConfig" method="back"]
+[connection signal="value_changed" from="GameConfig/VBox/Options/VSplitContainer/Points/Number" to="GameConfig/VBox/Options/VSplitContainer/Points" method="on_value_changed"]
+[connection signal="pressed" from="GameConfig/VBox/Options/RandomizeMap/Button" to="GameConfig/VBox/Options/VSplitContainer/MapSelect" method="randomize_map"]
+[connection signal="pressed" from="GameConfig/VBox/Options/Play/Panel/Button" to="GameConfig" method="play_game"]
 [connection signal="pressed" from="PlayerConfig/VBox/Play/Panel/Button" to="PlayerConfig" method="play_game"]
 [connection signal="value_add" from="PlayerConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="PlayerConfig/VBox/Options/BallNumber" method="value_add"]
 [connection signal="value_subtract" from="PlayerConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="PlayerConfig/VBox/Options/BallNumber" method="value_subtract"]

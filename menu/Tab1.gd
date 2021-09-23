@@ -3,9 +3,9 @@ extends CenterContainer
 onready var camera = get_parent().get_node("CameraPos")
 onready var tween_cam = get_parent().get_node("CameraTween")
 
-onready var b_play = $VBox/Options/Play/Panel/Button
-onready var b_settings = $VBox/Options/Settings/Panel/Button
-onready var b_exit = $VBox/Options/Exit/Panel/Button
+onready var b_play = $VBox/Options/Play/Button
+onready var b_settings = $VBox/Options/Settings/Button
+onready var b_exit = $VBox/Options/Exit/Button
 
 
 func _ready() -> void:

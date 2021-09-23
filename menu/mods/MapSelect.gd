@@ -1,6 +1,6 @@
 extends CenterContainer
 
-onready var map_number = $HBox/MapNumber/Number
+onready var map_number = $MapNumber/Number
 
 
 func map_value_changed(value) -> void:
