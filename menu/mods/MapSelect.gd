@@ -17,6 +17,4 @@ func randomize_map() -> void:
 	Global.current_map = selected_map
 	map_number.value = selected_map
 	map_number.get_node("CenterContainer/HBoxContainer/Text").text = str(selected_map)
-	
-	print(Global.current_map)
 

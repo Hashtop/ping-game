@@ -36,3 +36,17 @@ func value_add(value, p, node):
 				Global.ball_quantity["sticky"] = node.value
 				regular_balls.subtract_value()
 				regular_balls.update()
+
+
+func randomize_value():
+	var max_regular = int(rand_range(0, 10))
+	
+	while (Global.ball_quantity["regular"] != max_regular):
+		Global.ball_quantity["regular"] = max_regular
+		regular_balls.value = max_regular
+		
+	Global.ball_quantity["sticky"] = 10 - max_regular
+	sticky_balls.value = 10 - max_regular
+	
+	regular_balls.update()
+	sticky_balls.update()

@@ -13,3 +13,5 @@ func back() -> void:
 			Vector2(1920, 0), Vector2(0, 0), 2,
 			Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 	$Anim.start()
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://fonts/comfortaa_light_64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/comfortaa_light_256.tres" type="DynamicFont" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://sprites/bola_grude.png" type="Texture" id=17]
 [ext_resource path="res://fonts/comfortaa_bold_128.tres" type="DynamicFont" id=18]
 [ext_resource path="res://menu/Color.gd" type="Script" id=19]
+[ext_resource path="res://menu/GameConfigOptions.gd" type="Script" id=20]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -395,6 +396,7 @@ margin_top = 76.0
 margin_right = 793.0
 margin_bottom = 977.0
 custom_constants/separation = 25
+script = ExtResource( 20 )
 
 [node name="BallNumber" type="CenterContainer" parent="GameConfig/VBox/Options"]
 margin_right = 793.0
@@ -892,7 +894,7 @@ current = true
 [connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]
 [connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
 [connection signal="value_changed" from="GameConfig/VBox/Options/VSplitContainer/Points/Number" to="GameConfig/VBox/Options/VSplitContainer/Points" method="on_value_changed"]
-[connection signal="pressed" from="GameConfig/VBox/Options/RandomizeMap/Button" to="GameConfig/VBox/Options/VSplitContainer/MapSelect" method="randomize_map"]
+[connection signal="pressed" from="GameConfig/VBox/Options/RandomizeMap/Button" to="GameConfig/VBox/Options" method="randomize_pressed"]
 [connection signal="pressed" from="GameConfig/VBox/Options/Play/Panel/Button" to="GameConfig" method="play_game"]
 [connection signal="pressed" from="PlayerConfig/VBox/Play/Panel/Button" to="PlayerConfig" method="play_game"]
 [connection signal="value_add" from="PlayerConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="PlayerConfig/VBox/Options/BallNumber" method="value_add"]
