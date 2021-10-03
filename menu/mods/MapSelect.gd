@@ -8,8 +8,6 @@ func map_value_changed(value) -> void:
 
 
 func randomize_map() -> void:
-	randomize()
-	
 	var selected_map = int(rand_range((map_number.min_value - 1) * 10, (map_number.max_value + 1) * 10))
 	selected_map = round(selected_map / 10)
 	selected_map = clamp(selected_map, map_number.min_value, map_number.max_value)

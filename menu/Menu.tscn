@@ -893,6 +893,7 @@ current = true
 [connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
 [connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]
 [connection signal="value_subtract" from="GameConfig/VBox/Options/BallNumber/MiscOptions/StickyBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_subtract"]
+[connection signal="value_changed" from="GameConfig/VBox/Options/VSplitContainer/MapSelect/MapNumber/Number" to="GameConfig/VBox/Options/VSplitContainer/MapSelect" method="map_value_changed"]
 [connection signal="value_changed" from="GameConfig/VBox/Options/VSplitContainer/Points/Number" to="GameConfig/VBox/Options/VSplitContainer/Points" method="on_value_changed"]
 [connection signal="pressed" from="GameConfig/VBox/Options/RandomizeMap/Button" to="GameConfig/VBox/Options" method="randomize_pressed"]
 [connection signal="pressed" from="GameConfig/VBox/Options/Play/Panel/Button" to="GameConfig" method="play_game"]
