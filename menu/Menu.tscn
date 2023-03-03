@@ -92,9 +92,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="FirstMenu"]
 margin_left = 673.0
@@ -423,10 +420,10 @@ __meta__ = {
 margin_top = 82.0
 margin_right = 613.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 7 )
 text = "O máximo de bolas é 10. "
 align = 1
 valign = 1
@@ -588,8 +585,8 @@ script = ExtResource( 19 )
 margin_top = 661.0
 margin_right = 793.0
 margin_bottom = 804.0
-custom_fonts/font = ExtResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 18 )
 text = "ALEATÓRIO"
 align = 1
 valign = 1

@@ -12,9 +12,9 @@ var node2d
 
 func stick():
 	if ball.position.x < 960:
-		ball.position.x += 5
+		ball.position.x = current_player.position.x + 37
 	else:
-		ball.position.x += -5
+		ball.position.x = current_player.position.x - 37
 	
 	node2d = Node2D.new()
 	add_child(node2d)

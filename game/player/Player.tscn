@@ -119,9 +119,6 @@ margin_top = -200.0
 margin_right = 12.5
 margin_bottom = 200.0
 custom_styles/panel = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CooldownBar" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
