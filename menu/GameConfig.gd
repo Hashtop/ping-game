@@ -1,7 +1,7 @@
 extends CenterContainer
 
 onready var camera = get_parent().get_node("CameraPos")
-
+onready var tween_cam = get_parent().get_node("CameraTween")
 
 func play_game() -> void:
 	Global.played = true
@@ -9,9 +9,9 @@ func play_game() -> void:
 
 
 func back() -> void:
-	$Anim.interpolate_property(camera, "position",
+	tween_cam.interpolate_property(camera, "position",
 			Vector2(1920, 0), Vector2(0, 0), 2,
 			Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
-	$Anim.start()
+	tween_cam.start()
 
 

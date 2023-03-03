@@ -3,6 +3,7 @@ extends CenterContainer
 var save_path = "user://settings.json"
 
 onready var camera = get_parent().get_node("CameraPos")
+onready var tween_cam = get_parent().get_node("CameraTween")
 
 onready var music_slider = $VBox/Options/Center/SoundOptions/VolMusic/VolumeSlider
 onready var sound_slider = $VBox/Options/Center/SoundOptions/VolAudio/VolumeSlider
@@ -22,10 +23,10 @@ func _ready() -> void:
 func exit_settings() -> void:
 	save_settings()
 	
-	$Anim.interpolate_property(camera, "position",
+	tween_cam.interpolate_property(camera, "position",
 			Vector2(0, 1080), Vector2(0, 0), 2, 
 			Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
-	$Anim.start()
+	tween_cam.start()
 
 
 func save_settings():

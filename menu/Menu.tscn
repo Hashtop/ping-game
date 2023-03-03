@@ -76,14 +76,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.321569, 0.988235, 1 ), Color( 1, 0.733333, 0.321569, 1 ), Color( 0.392157, 1, 0.321569, 1 ), Color( 1, 0.321569, 0.321569, 1 ) ]
 }
 
-[node name="Menu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
+[node name="Menu" type="Node"]
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CameraTween" type="Tween" parent="."]
 
@@ -189,11 +183,6 @@ margin_top = 1082.12
 margin_bottom = 1082.12
 mouse_filter = 2
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Anim" type="Tween" parent="Settings"]
 
 [node name="VBox" type="VBoxContainer" parent="Settings"]
 margin_left = 434.0
@@ -354,11 +343,6 @@ margin_right = 1920.0
 margin_bottom = -1.8877
 mouse_filter = 2
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Anim" type="Tween" parent="GameConfig"]
 
 [node name="VBox" type="VBoxContainer" parent="GameConfig"]
 margin_left = 563.0
@@ -377,15 +361,13 @@ valign = 1
 [node name="Button" type="Button" parent="GameConfig/VBox/Back"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -20.0
-margin_right = -20.0
-margin_bottom = -20.0
+margin_top = -0.112301
+margin_bottom = -0.112305
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Options" type="VBoxContainer" parent="GameConfig/VBox"]
@@ -651,8 +633,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Anim" type="Tween" parent="PlayerConfig"]
-
 [node name="VBox" type="VBoxContainer" parent="PlayerConfig"]
 margin_left = 494.0
 margin_top = 103.0
@@ -884,6 +864,7 @@ current = true
 
 [connection signal="value_changed" from="Settings/VBox/Options/Center/SoundOptions/VolMusic/VolumeSlider" to="Settings/VBox/Options/Center/SoundOptions" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="Settings/VBox/Options/Center/SoundOptions/VolAudio/VolumeSlider" to="Settings/VBox/Options/Center/SoundOptions" method="_on_SoundSlider_value_changed"]
+[connection signal="value_changed" from="Settings/VBox/Options/Center2/MiscOptions/ShakeAmount/ShakeNumber" to="Settings/VBox/Options/Center2/MiscOptions" method="_on_ShakeNumber_value_changed"]
 [connection signal="pressed" from="Settings/VBox/Back/Button" to="Settings" method="exit_settings"]
 [connection signal="pressed" from="GameConfig/VBox/Back/Button" to="GameConfig" method="back"]
 [connection signal="value_add" from="GameConfig/VBox/Options/BallNumber/MiscOptions/RegularBalls/Number" to="GameConfig/VBox/Options/BallNumber" method="value_add"]

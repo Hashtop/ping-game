@@ -21,7 +21,7 @@ func stick():
 	
 	node2d.position = collision_point
 	
-	player_distance_to_point =  current_player.position.y - node2d.position.y
+	player_distance_to_point = current_player.position.y - node2d.position.y
 	
 	$Duration.start()
 

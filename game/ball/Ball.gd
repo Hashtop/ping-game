@@ -43,19 +43,19 @@ func _ready() -> void:
 
 
 static func randomize_dir() -> Vector2:
-	var dir = Vector2()
+	var rand_dir = Vector2()
 	
 	randomize()
 	
-	dir.x = clamp(int(rand_range(-10, 10)), -1, 1)
-	while dir.x == 0:
-		dir.x = clamp(int(rand_range(-10, 10)), -1, 1)
+	rand_dir.x = clamp(int(rand_range(-10, 10)), -1, 1)
+	while rand_dir.x == 0:
+		rand_dir.x = clamp(int(rand_range(-10, 10)), -1, 1)
 
 	randomize()
 	
-	dir.y = clamp(int(rand_range(-10, 10)), -1, 1)
+	rand_dir.y = clamp(int(rand_range(-10, 10)), -1, 1)
 	
-	return dir
+	return rand_dir
 
 
 func ball_exited() -> void:

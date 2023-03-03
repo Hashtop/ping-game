@@ -29,6 +29,8 @@ func settings():
 
 
 func exit():
+	if (tween_cam.is_active()): return
+	
 	tween_cam.interpolate_property(camera, "position",
 			Vector2(0, 0), Vector2(0, -2160), 4,
 			Tween.TRANS_EXPO, Tween.EASE_IN)
